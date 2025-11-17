@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_category_id')->constrained('product_categories')->onDelete('restrict');
             $table->string('name');
+            $table->string('code')->unique();
             $table->text('description')->nullable();
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryProduct extends Model
+class ProductCategory extends Model
 {
     protected $table = 'product_categories';
     
@@ -12,4 +12,13 @@ class CategoryProduct extends Model
         'name',
         'description',
     ];
+
+    /**
+     * Relasi dengan Product (jika ada)
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
 }
+
