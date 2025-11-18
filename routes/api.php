@@ -2,14 +2,14 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VendorController;
-use App\Http\Controllers\Api\ProductCategoriesController;
+use App\Http\Controllers\Api\ProductCategorieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('vendors', VendorController::class);
-    Route::resource('product-categories', ProductCategoriesController::class);
+    Route::resource('product_categorie', ProductCategorieController::class);
     
     Route::get('/halo', function(){
         return 'halo laravel';

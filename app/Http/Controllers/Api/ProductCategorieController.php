@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProductCategory;
+use App\Models\ProductCategorie;
 use Illuminate\Http\Request;
 
-class ProductCategoriesController extends Controller
+class ProductCategorieController extends Controller
 {
     // ✅ 1. Menampilkan semua kategori
     public function index()
     {
-        $categories = ProductCategory::all();
+        $categories = ProductCategorie::all();
         return response()->json($categories);
     }
 
@@ -25,7 +25,7 @@ class ProductCategoriesController extends Controller
             'description' => 'nullable|string|max:255',
         ]);
 
-        $productCategory = ProductCategory::create($validateData);
+        $productCategory = ProductCategorie::create($validateData);
         return response()->json([
             'message' => 'Kategori berhasil ditambahkan.',
             'data' => $productCategory
@@ -35,7 +35,7 @@ class ProductCategoriesController extends Controller
     // ✅ 3. Menampilkan detail kategori berdasarkan ID
     public function show($id)
     {
-        $category = ProductCategory::find($id);
+        $category = ProductCategorie::find($id);
 
         if (!$category) {
             return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
@@ -47,7 +47,7 @@ class ProductCategoriesController extends Controller
     // ✅ 4. Mengupdate kategori
     public function update(Request $request, $id)
     {
-        $category = ProductCategory::find($id);
+        $category = ProductCategorie::find($id);
 
         if (!$category) {
             return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
@@ -70,7 +70,7 @@ class ProductCategoriesController extends Controller
     // ✅ 5. Menghapus kategori
     public function destroy($id)
     {
-        $category = ProductCategory::find($id);
+        $category = ProductCategorie::find($id);
 
         if (!$category) {
             return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
