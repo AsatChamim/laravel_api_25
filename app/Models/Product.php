@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -15,10 +16,17 @@ class Product extends Model
     ];
 
     /**
-     * Relasi dengan ProductCategory
+     * Relasi dengan ProductCategorie
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(ProductCategory::class, 'product_category_id');
+        return $this->belongsTo(ProductCategorie::class, 'product_category_id');
+    }
+    /**
+     * Relasi dengan ProductVarian
+     */
+    public function varians(): HasMany
+    {
+        return $this->hasMany(ProductVarian::class, 'product_id');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ProductCategorie extends Model
 {
@@ -14,11 +15,11 @@ class ProductCategorie extends Model
     ];
 
     /**
-     * Relasi dengan Product (jika ada)
+     * Relasi dengan Product
      */
-    public function products()
+    public function products(): HasMany
     {
-        return $this->hasMany(Product::class, 'category_id');
+        return $this->hasMany(Product::class, 'product_category_id');
     }
 }
 
