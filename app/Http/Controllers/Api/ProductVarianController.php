@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\ProductVarian;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ProductVarianController extends Controller
 {
@@ -58,6 +59,12 @@ class ProductVarianController extends Controller
                 'data'=>$variant,
             ], 201);
 
+        } catch(ValidationException $e){
+            return response()->json([
+                'message'=>'Validation failed',
+                'errors'=>$e->errors(),
+                'data'=>null
+            ], 422); 
         } catch(\Exception $e){
             return response()->json([
                 'message'=>$e->getMessage(),
@@ -73,7 +80,7 @@ class ProductVarianController extends Controller
     {
         //
         try{
-            $variant=ProductVarian::findOrFail($id);
+            $variant=ProductVarian::with('product')->findOrFail($id);
             return response()->json([
                 'message'=>'succes',
                 'data'=>$variant
@@ -116,6 +123,12 @@ class ProductVarianController extends Controller
                 'data'=>$variant,
             ], 201);
 
+        } catch(ValidationException $e){
+            return response()->json([
+                'message'=>'Validation failed',
+                'errors'=>$e->errors(),
+                'data'=>null
+            ], 422); 
         } catch(\Exception $e){
             return response()->json([
                 'message'=>$e->getMessage(),

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
@@ -47,13 +48,19 @@ class ProductController extends Controller
             $validate = $request->validate([
                 'name'=>'required|max:255',
                 'description'=>'required',
-                'product_category_id'=>'required|exists:category_products,id'
+                'product_category_id'=>'required|exists:product_categories,id'
             ]);
             $product = Product::create($validate);
             return response()->json([
                 'message'=>'tersimpan',
                 'data'=>$product
             ], 201);
+        }catch(ValidationException $e){
+            return response()->json([
+                'message'=>'Validation failed',
+                'errors'=>$e->errors(),
+                'data'=>null, 
+            ], 422);
         }catch(\Exception $e){
             return response()->json([
                 'message'=>$e->getMessage(),
@@ -99,7 +106,7 @@ class ProductController extends Controller
             $validate = $request->validate([
                 'name'=>'required|max:255',
                 'description'=>'required',
-                'product_category_id'=>'required|exists:category_products,id'
+                'product_category_id'=>'required|exists:product_categories,id'
             ]);
             $product -> update($validate);
             return response()->json([
@@ -107,6 +114,12 @@ class ProductController extends Controller
                 'data'=>$product
             ],201); 
 
+        } catch(ValidationException $e){
+            return response()->json([
+                'message'=>'Validation failed',
+                'errors'=>$e->errors(),
+                'data'=>null,
+            ], 422);
         } catch(\Exception $e){
             return response()->json([
                 'message'=>$e->getMessage(),
