@@ -26,7 +26,7 @@ class ProductVarianController extends Controller
             return response()->json([
                 'message'=>$e->getMessage(),
                 'data'=>null
-            ],401); 
+            ], 500); 
         }
     }
 
@@ -69,7 +69,7 @@ class ProductVarianController extends Controller
             return response()->json([
                 'message'=>$e->getMessage(),
                 'data'=>null
-            ],401); 
+            ], 500); 
         }
     }
 
@@ -90,7 +90,7 @@ class ProductVarianController extends Controller
             return response()->json([
                 'message'=>$e->getMessage(),
                 'data'=>null
-            ],401); 
+            ], 500); 
         }
     }
 
@@ -133,7 +133,7 @@ class ProductVarianController extends Controller
             return response()->json([
                 'message'=>$e->getMessage(),
                 'data'=>null
-            ],401); 
+            ], 500); 
         }
     }
 
@@ -156,7 +156,7 @@ class ProductVarianController extends Controller
             return response()->json([
                 'message'=>$e->getMessage(),
                 'data'=>null
-            ],401); 
+            ], 500); 
         } 
     }
 

@@ -1,0 +1,55 @@
+==========================================
+CARA MENJALANKAN LARAVEL - CARA TERMUDAH
+==========================================
+
+✅ Masalah yang sudah diperbaiki:
+✓ File .env sudah dibuat dengan konfigurasi lengkap
+✓ Script setup otomatis sudah disiapkan
+
+🚀 CARA TERMUDAH (REKOMENDASI):
+
+1. Buka Command Prompt (Win+R, ketik "cmd", Enter)
+   
+2. Masuk ke folder Laravel:
+   cd "D:\05. SEM5\PB_Kerangka Kerja\laravel_api_25"
+
+3. Jalankan file setup:
+   setup.bat
+   
+   File ini akan otomatis melakukan semua setup dan menjalankan server!
+
+4. Buka browser:
+   http://localhost:8000
+
+==========================================
+CARA MANUAL (Jika setup.bat tidak berfungsi):
+==========================================
+
+1. cd "D:\05. SEM5\PB_Kerangka Kerja\laravel_api_25"
+2. composer install
+3. php artisan key:generate
+4. php artisan migrate
+5. php artisan serve
+
+Untuk detail lengkap, lihat: README_SETUP.md
+
+==========================================
+ENDPOINT API YANG TERSEDIA:
+==========================================
+
+Public Routes:
+- POST /api/v1/login
+- POST /api/v1/register
+- GET  /api/v1/halo
+
+Protected Routes (perlu token):
+- POST /api/v1/logout
+- GET  /api/v1/user
+
+Resource Routes:
+- /api/v1/products
+- /api/v1/vendors
+- /api/v1/ProductVarian
+- /api/v1/product_categorie
+
+==========================================

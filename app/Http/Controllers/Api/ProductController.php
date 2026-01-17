@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
             return response()->json([
                 'message'=>$e->getMessage(),
                 'data'=>null,
-            ], 401);
+            ], 500);
         }
     }
 
@@ -50,6 +51,10 @@ class ProductController extends Controller
                 'description'=>'required',
                 'product_category_id'=>'required|exists:product_categories,id'
             ]);
+            
+            // Auto-generate code
+            $validate['code'] = Str::upper(Str::slug($request->name) . '-' . Str::random(5));
+            
             $product = Product::create($validate);
             return response()->json([
                 'message'=>'tersimpan',
@@ -65,7 +70,7 @@ class ProductController extends Controller
             return response()->json([
                 'message'=>$e->getMessage(),
                 'data'=>null, 
-            ], 401);
+            ], 500);
         }
     }
 

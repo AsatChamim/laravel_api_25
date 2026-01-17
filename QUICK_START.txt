@@ -1,0 +1,72 @@
+╔══════════════════════════════════════════════════════════════╗
+║           QUICK START - JALANKAN LARAVEL SEKARANG           ║
+╚══════════════════════════════════════════════════════════════╝
+
+✅ SEMUA SUDAH DISIAPKAN!
+   - File .env sudah dibuat
+   - Script setup sudah siap
+   - Konfigurasi sudah benar
+
+🚀 CARA JALANKAN (PILIH SALAH SATU):
+
+═══════════════════════════════════════════════════════════════
+CARA 1: OTOMATIS (PALING MUDAH) ⭐ REKOMENDASI
+═══════════════════════════════════════════════════════════════
+
+1. Buka Command Prompt (Win+R → ketik "cmd" → Enter)
+
+2. Copy paste perintah ini:
+   cd "D:\05. SEM5\PB_Kerangka Kerja\laravel_api_25"
+
+3. Copy paste perintah ini:
+   setup.bat
+
+   → File ini akan otomatis:
+     • Install dependencies
+     • Generate app key
+     • Setup database
+     • Menjalankan server
+
+4. Buka browser: http://localhost:8000
+
+═══════════════════════════════════════════════════════════════
+CARA 2: MANUAL (Jika Cara 1 tidak berfungsi)
+═══════════════════════════════════════════════════════════════
+
+Buka Command Prompt, lalu jalankan satu per satu:
+
+cd "D:\05. SEM5\PB_Kerangka Kerja\laravel_api_25"
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan serve
+
+═══════════════════════════════════════════════════════════════
+CARA 3: PHP SCRIPT
+═══════════════════════════════════════════════════════════════
+
+cd "D:\05. SEM5\PB_Kerangka Kerja\laravel_api_25"
+php run_setup.php
+
+═══════════════════════════════════════════════════════════════
+📚 DOKUMENTASI LENGKAP
+═══════════════════════════════════════════════════════════════
+
+Lihat file: README_SETUP.md
+   → Panduan lengkap dengan semua endpoint API
+   → Troubleshooting
+   → Contoh penggunaan
+
+═══════════════════════════════════════════════════════════════
+🌐 SETELAH SERVER BERJALAN
+═══════════════════════════════════════════════════════════════
+
+Web:        http://localhost:8000
+API Base:   http://localhost:8000/api/v1
+
+Test API:
+GET http://localhost:8000/api/v1/halo
+
+═══════════════════════════════════════════════════════════════
+
+Selamat! Laravel siap digunakan! 🎉
